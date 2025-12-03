@@ -1,0 +1,29 @@
+services:
+  chat-server:
+    build: ./server
+    container_name: chat-server
+    ports:
+      - "8080:8080"
+      - "9000:9000"
+    networks:
+      - e2ee-net
+
+  client1:
+    build: ./client
+    container_name: client1
+    networks:
+      - e2ee-net
+    stdin_open: true
+    tty: true
+
+  client2:
+    build: ./client
+    container_name: client2
+    networks:
+      - e2ee-net
+    stdin_open: true
+    tty: true
+
+networks:
+  e2ee-net:
+    driver: bridge
