@@ -60,22 +60,60 @@ e2ee-chat/
 
 
 ## 🚀 Docker 실행 방법
-### 1) Client build
-cd client
-./gradlew shadowJar
+오프라인 환경에서도 실행할 수 있도록 Docker 이미지가 .tar 파일로 제공됩니다.
+GitHub Release에서 다음 두 파일을 다운로드하세요:
 
-### 2) Server build
-cd server
-./gradlew clean build -x test
+server.tar
 
-### 3) Docker Compose 실행
-루트에서:
-docker compose up --build
+client.tar
 
-### 4) 각 클라이언트 접속
+1️⃣ Docker 이미지 로드
+
+다운로드한 .tar 파일을 Docker에 로드합니다:
+
+docker load -i server.tar
+docker load -i client.tar
+
+성공하면 아래와 비슷한 메시지가 출력됩니다:
+
+Loaded image: e2ee-chat-chat-server:latest
+Loaded image: e2ee-chat-client1:latest
+
+2️⃣ Docker Compose 실행
+
+프로젝트 루트에서 다음 명령어 실행:
+
+docker compose up
+
+3️⃣ 클라이언트 접속
+
+두 개의 클라이언트 컨테이너가 자동으로 실행되며, 각각 다음 명령으로 접속하여 사용합니다:
+
 docker attach client1
 docker attach client2
 
+🐳 Docker 이미지 구성
+
+Docker Compose는 다음 세 컨테이너를 실행합니다:
+
+chat-server
+
+client1
+
+client2
+
+모두 동일 네트워크에서 TCP(9000) 기반으로 통신합니다.
+
+🔒 데이터 저장 위치
+서버 (컨테이너 내부)
+/app/data/users.json
+/app/data/history.json
+
+클라이언트 (컨테이너 내부)
+/root/.e2ee-chat/keystore/
+ /root/.e2ee-chat/history/
+
+ 
 ## 🧪 Test Scenario
 ### ✔ 회원가입
 client1:
