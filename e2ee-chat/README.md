@@ -89,7 +89,7 @@ docker compose up
 
 두 개의 클라이언트 컨테이너가 자동으로 실행되며, 각각 다음 명령으로 접속하여 사용합니다:
 
-docker attach client1 
+docker attach client1               
 docker attach client2
 
 🐳 Docker 이미지 구성
