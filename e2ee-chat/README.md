@@ -71,7 +71,7 @@ client.tar
 
 다운로드한 .tar 파일을 Docker에 로드합니다:
 
-docker load -i server.tar
+docker load -i server.tar              
 docker load -i client.tar
 
 성공하면 아래와 비슷한 메시지가 출력됩니다:
@@ -89,7 +89,7 @@ docker compose up
 
 두 개의 클라이언트 컨테이너가 자동으로 실행되며, 각각 다음 명령으로 접속하여 사용합니다:
 
-docker attach client1 \n
+docker attach client1 
 docker attach client2
 
 🐳 Docker 이미지 구성
