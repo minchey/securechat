@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 📘 E2EE Chat – End-to-End Encrypted TCP Chat Program
 **Java 21 · Spring Boot 3 · Docker Compose · ECC(X25519) + AES-GCM · TCP 기반 중계 서버**
 
@@ -58,62 +59,36 @@ e2ee-chat/
 ├── docker-compose.yml
 └── README.md
 
+본 프로젝트는 Docker 기반으로 실행되며, 클라이언트 입력은 반드시 docker attach 명령을 통해 개별 컨테이너에 접속하여 수행합니다.
+
+1) 제공된 server.tar / client.tar Docker 이미지를 로드합니다.
+2) docker compose up -d 로 백그라운드 실행합니다.
+3) client1, client2 컨테이너에 각각 docker attach 로 접속하여 CLI 입력을 수행합니다.
+4) Ctrl+P, Ctrl+Q 로 컨테이너를 종료하지 않고 빠져나올 수 있습니다.
 
 ## 🚀 Docker 실행 방법
-오프라인 환경에서도 실행할 수 있도록 Docker 이미지가 .tar 파일로 제공됩니다.
-GitHub Release에서 다음 두 파일을 다운로드하세요:
+1) Docker 이미지 로드
 
-server.tar
+(제공된 tar 파일을 프로젝트 루트에서 로드합니다)
 
-client.tar
-
-1️⃣ Docker 이미지 로드
-
-다운로드한 .tar 파일을 Docker에 로드합니다:
-
-docker load -i server.tar              
+docker load -i server.tar
 docker load -i client.tar
 
-성공하면 아래와 비슷한 메시지가 출력됩니다:
+2) Docker Compose 백그라운드 실행
 
-Loaded image: e2ee-chat-chat-server:latest
-Loaded image: e2ee-chat-client1:latest
+(로그창에서 입력이 불가능하므로 반드시 -d 사용)
 
-2️⃣ Docker Compose 실행
+docker compose up -d
 
-프로젝트 루트에서 다음 명령어 실행:
-
-docker compose up
-
-3️⃣ 클라이언트 접속
-
-두 개의 클라이언트 컨테이너가 자동으로 실행되며, 각각 다음 명령으로 접속하여 사용합니다:
-
-docker attach client1               
+3) 각 클라이언트 접속
+docker attach client1
 docker attach client2
 
-🐳 Docker 이미지 구성
+4) 클라이언트 종료하지 않고 빠져나오기
 
-Docker Compose는 다음 세 컨테이너를 실행합니다:
+(컨테이너는 계속 실행됨)
+Ctrl + P , Ctrl + Q
 
-chat-server
-
-client1
-
-client2
-
-모두 동일 네트워크에서 TCP(9000) 기반으로 통신합니다.
-
-🔒 데이터 저장 위치
-서버 (컨테이너 내부)
-/app/data/users.json
-/app/data/history.json
-
-클라이언트 (컨테이너 내부)
-/root/.e2ee-chat/keystore/
- /root/.e2ee-chat/history/
-
- 
 ## 🧪 Test Scenario
 ### ✔ 회원가입
 client1:
@@ -155,5 +130,3 @@ server/data/history.json
 ### 클라이언트 저장
 ~/.e2ee-chat/keystore/
 ~/.e2ee-chat/history/
-
-
