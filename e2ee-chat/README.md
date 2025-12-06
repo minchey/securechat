@@ -69,7 +69,7 @@ e2ee-chat/
 ## 🚀 Docker 실행 방법
 1) Docker 이미지 로드
 
-(제공된 tar 파일을 프로젝트 루트에서 로드합니다)
+tar파일 위치에서 로드합니다.
 
 docker load -i server.tar
 docker load -i client.tar
