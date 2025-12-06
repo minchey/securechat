@@ -47,18 +47,18 @@
   모두 동일 도커 네트워크에서 TCP로 통신
 
 ## 📁 Project Structure
-e2ee-chat/
-├── client/
-│ ├── Dockerfile
-│ ├── build.gradle
-│ └── src/main/java/com/e2ee/client/...
-├── server/
-│ ├── Dockerfile
-│ ├── build.gradle
-│ └── src/main/java/com/e2ee/server/...
-├── docker-compose.yml
-└── README.md
-
+e2ee-chat/       
+├── client/      
+│ ├── Dockerfile      
+│ ├── build.gradle      
+│ └── src/main/java/com/e2ee/client/...      
+├── server/      
+│ ├── Dockerfile      
+│ ├── build.gradle      
+│ └── src/main/java/com/e2ee/server/...      
+├── docker-compose.yml      
+└── README.md        
+  
 본 프로젝트는 Docker 기반으로 실행되며, 클라이언트 입력은 반드시 docker attach 명령을 통해 개별 컨테이너에 접속하여 수행합니다.
 
 1) 제공된 server.tar / client.tar Docker 이미지를 로드합니다.
