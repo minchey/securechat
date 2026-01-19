@@ -18,10 +18,12 @@
 
 ## 🧩 System Architecture
 
-+----------------------+ +----------------------+ +----------------------+\n
-| Client #1 | <--> | Chat Server | <--> | Client #2 |\n
-| (Encrypt / Decrypt) | | (Relay only) | | (Encrypt / Decrypt) |\n
+```text
 +----------------------+ +----------------------+ +----------------------+
+| Client #1           | <--> | Chat Server       | <--> | Client #2           |
+| (Encrypt / Decrypt) |      | (Relay only)      |      | (Encrypt / Decrypt) |
++----------------------+ +----------------------+ +----------------------+
+
 
 - 서버: Spring Boot 기반 TCP 소켓 서버(9000), 메시지 중계만 수행, 암호문을 history.json에 저장
 - 클라이언트: Java 21 CLI, X25519 키교환, AES-GCM 암호화, HISTORY 로컬 저장 지원
