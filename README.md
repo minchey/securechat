@@ -18,9 +18,9 @@
 
 ## 🧩 System Architecture
 
-+----------------------+ +----------------------+ +----------------------+
-| Client #1 | <--> | Chat Server | <--> | Client #2 |
-| (Encrypt / Decrypt) | | (Relay only) | | (Encrypt / Decrypt) |
++----------------------+ +----------------------+ +----------------------+\n
+| Client #1 | <--> | Chat Server | <--> | Client #2 |\n
+| (Encrypt / Decrypt) | | (Relay only) | | (Encrypt / Decrypt) |\n
 +----------------------+ +----------------------+ +----------------------+
 
 - 서버: Spring Boot 기반 TCP 소켓 서버(9000), 메시지 중계만 수행, 암호문을 history.json에 저장
